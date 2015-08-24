@@ -9,11 +9,15 @@ var clean = require('gulp-clean');
 var uglifycss = require('gulp-uglifycss');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
+var runSequence = require('run-sequence').use(gulp);
 
  
 gulp.task('clean', function(){
-    gulp.src('./build/**/*')
-        .pipe(clean({read: false}))
+    return gulp.src('./build/**/*', {read: false})
+        .pipe(clean({force:true}))
+        .on('error', function(error){
+          console.log(error);
+        });
 });
 
 gulp.task('scripts', function(){    
@@ -61,19 +65,23 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve', function(){
-    browserSync.init({
-      notify: false,
-      port: 3000,
-      server: {
-        baseDir: ['build'],
-        routes: {
-          '/build': 'build'
-        }
+  browserSync.init({
+    notify: false,
+    port: 3000,
+    server: {
+      baseDir: ['build'],
+      routes: {
+        '/build': 'build'
       }
+    }
   });
 });
 
 
-gulp.task('default', ['clean', 'css', 'scripts', 'html', 'images', 'serve'], function() {
-  gulp.start('watch');
+gulp.task('default', function() {
+
+  runSequence('clean',
+              ['scripts', 'html', 'images', 'css'],
+              'serve', 'watch');
+
 });
