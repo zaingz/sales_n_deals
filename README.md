@@ -14,9 +14,11 @@ This is a javascript app. Gulp and bower are dependency manger of this project. 
 
 > **up and Installation:**
 
-> - Step 1:  `npm install --global yo gulp bower`
+> - Step 1:  `npm install --global gulp`
 > -  Step 2: ` cd` into the projects directory
 > -  Step 3: `npm install`
 > - Step 4:  `gulp `
+> - Step 5:  `Wait for the browser to open `
+> - Step 6:  `Enjoy !`
 
 #####Written by Zain Bin Zafar <zaing.143@gmail.com>, August 23
