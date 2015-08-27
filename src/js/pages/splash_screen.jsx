@@ -1,5 +1,12 @@
+var Router = require('react-router');
+var Navigation = Router.Navigation;
+
 var SplashScreen = React.createClass({
+  mixins: [Navigation],
+  
+
   render: function () {
+    setTimeout(function(){ window.location.href = "/#/home" }, 3000);
     return (
 
     			<div className="splash_screen row">

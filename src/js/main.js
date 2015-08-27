@@ -36,12 +36,13 @@ var App = React.createClass({
 
 // getting pages
 var SplashScreen = require('./pages/splash_screen.jsx');
-
+var Home = require('./pages/home.jsx');
 
 // Defining Routes for pages (Page is acutually a component)
 var routes = (
   <Route handler={App}>
     <DefaultRoute name="splash_screen" handler={SplashScreen}/>
+    <Route name="home" handler={Home}/>
   </Route>
 );
 
