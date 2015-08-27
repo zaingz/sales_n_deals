@@ -19,8 +19,7 @@ var Link = Router.Link;
 var RouteHandler = Router.RouteHandler;
 
 
-// Header Component
-var Header = require('./react_components/header.jsx');
+
 
 
 // Main Layout of application
@@ -28,17 +27,6 @@ var App = React.createClass({
   render () {
     return (
       <div>        
-        <Header title="Sale N Deals" />
-        <hr />
-        <ul>
-          <li>
-            <Link to="home" >Test Home</Link>
-          </li>
-          <li>
-            <Link to="about" >About</Link>
-          </li>
-        </ul>
-        <hr />
         <RouteHandler/>
       </div>
     )
@@ -47,14 +35,13 @@ var App = React.createClass({
 /////////////////////////////
 
 // getting pages
-var Home = require('./pages/home.jsx');
-var About = require('./pages/about.jsx');
+var SplashScreen = require('./pages/splash_screen.jsx');
+
 
 // Defining Routes for pages (Page is acutually a component)
 var routes = (
   <Route handler={App}>
-    <DefaultRoute name="home" handler={Home}/>
-    <Route name="about" path="about" handler={About}/>
+    <DefaultRoute name="splash_screen" handler={SplashScreen}/>
   </Route>
 );
 
