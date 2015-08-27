@@ -1,0 +1,24 @@
+{
+  "name": "sale n deals",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zaingz/sales_n_deals",
+  "authors": [
+    "Haseeb. Zain",
+    "Faraz"
+  ],
+  "description": "Sale",
+  "keywords": [
+    "sale"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#~0.97.0"
+  }
+}

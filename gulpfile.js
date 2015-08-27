@@ -10,14 +10,20 @@ var uglifycss = require('gulp-uglifycss');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var runSequence = require('run-sequence').use(gulp);
+var bower = require('gulp-bower');
 
  
 gulp.task('clean', function(){
-    return gulp.src('./build/**/*', {read: false})
+    return gulp.src('./build', {read: false})
         .pipe(clean({force:true}))
         .on('error', function(error){
           console.log(error);
         });
+});
+
+gulp.task('bower', function() {
+  return bower({ directory: 'bower_components', cwd: './src'})
+    .pipe(gulp.dest('./build/bower_components'))
 });
 
 gulp.task('scripts', function(){    
@@ -80,8 +86,8 @@ gulp.task('serve', function(){
 
 gulp.task('default', function() {
 
-  runSequence('clean',
+  runSequence('clean', 'bower',
               ['scripts', 'html', 'images', 'css'],
-              'serve', 'watch');
+               'serve', 'watch');
 
 });
